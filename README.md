@@ -18,5 +18,6 @@ This package provides a simple GUI to ROS2 GUI developers.
    ```
    ros2 run rqt_sample sample
    ```
-   After this command, a GUI windows will be open.
+   After that, the following GUI window will be launched.
+   
    In the RQt sample plugin, you can adjust and publish some values using sliders and a publish button.
