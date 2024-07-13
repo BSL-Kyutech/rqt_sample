@@ -25,7 +25,7 @@ class SampleWidget(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
-        self.setWindowTitle("Tenpa Interface")
+        self.setWindowTitle("Sample")
 
         self.main_widget = QtWidgets.QWidget(self)
         self.slider_group = QtWidgets.QGroupBox('Desired values:')
@@ -33,6 +33,7 @@ class SampleWidget(QtWidgets.QMainWindow):
         self.labellist = []
         self.combolist = []
         self.N_ch = 10
+        self.send_value = np.zeros(len(self.combolist))
 
         # flags
         self.sample_pub_flag = False
@@ -46,14 +47,7 @@ class SampleWidget(QtWidgets.QMainWindow):
             #self.combolist[i].valueChanged.connect( self.generateSliderCallback(i) )
             self.slider_form.addRow(self.labellist[i], self.combolist[i])
         
-        '''
-        # macro
-        self.labellist.append( QtWidgets.QLabel('Set all channels'))
-        self.combolist.append( QtWidgets.QSlider(QtCore.Qt.Horizontal, self) )
-        self.combolist[].setMaximum( 255 )
-        self.slider_form.addRow(self.labellist[48], self.combolist[48])
-        '''
-
+        # slider
         self.slider_group.setLayout(self.slider_form)
         scroll = QtWidgets.QScrollArea()
         scroll.setWidget(self.slider_group)
@@ -76,3 +70,7 @@ class SampleWidget(QtWidgets.QMainWindow):
     
     def updatePublishFlag(self):
         self.sample_pub_flag = True
+        
+        self.send_value = np.zeros(len(self.combolist))
+        for i in range(len(self.combolist)):
+            self.send_value[i] = self.combolist[i].value()

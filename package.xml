@@ -3,22 +3,24 @@
 <package format="3">
   <name>rqt_sample</name>
   <version>0.0.0</version>
-  <description>rqt_sample.</description>
-  <maintainer email="hoge@gmail.com">hoge</maintainer>
-  <license>MIT</license>
+  <description>TODO: Package description</description>
+  <maintainer email="ikemoto.lab.kyutech@gmail.com">ros2user</maintainer>
+  <license>TODO: License declaration</license>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
 
-  <exec_depend>ament_index_python</exec_depend>
-  <exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
   <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
   <exec_depend>rqt_gui</exec_depend>
   <exec_depend>rqt_gui_py</exec_depend>
   <exec_depend>rqt_py_common</exec_depend>
 
   <export>
-    <!-- <architecture_independent/> -->
+    <build_type>ament_python</build_type>
     <rqt_gui plugin="${prefix}/plugin.xml"/>
-    <build_type>ament_cmake</build_type>
   </export>
 </package>

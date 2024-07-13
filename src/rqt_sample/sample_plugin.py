@@ -13,7 +13,7 @@ from std_msgs.msg import Float32MultiArray
 class SamplePlugin(Plugin):
 
     def __init__(self, context):
-        super(Sample, self).__init__(context)
+        super(SamplePlugin, self).__init__(context)
         self.setObjectName('Sample')
 
         self._context = context
@@ -52,7 +52,7 @@ class SamplePlugin(Plugin):
             # restore the publish flug
             self._widget.sample_pub_flag = False
             # publish
-            self.publish_array(self._widget.send_value)
+            self.sample_publish(self._widget.send_value)
             
 
         return 0
@@ -60,10 +60,6 @@ class SamplePlugin(Plugin):
     def sample_publish(self, value):
         msg = Float32MultiArray()
         value = value.tolist()
-        #msg = Float32MultiArray(value)
-        #msg.header.stamp = self.current_time
-        #msg.layout.dim = len(value)
-        #msg.layout.
         msg.data = value
         
         self.sample_pub.publish(msg)
