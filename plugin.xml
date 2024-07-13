@@ -1,15 +1,23 @@
+<!-- 読み込み開始場所の指定です．srcである必要はないのでお好きに変更してください． -->
 <library path="src">
+  <!-- srcの中にあるpluginオブジェクト（クラス）を指定します．-->
   <class name="SamplePlugin" type="rqt_sample.sample_plugin.SamplePlugin" base_class_type="rqt_gui_py::Plugin">
+  	<!-- プラグインの説明 -->
     <description>
       A Python GUI plugin for displaying and filtering ROS messages.
     </description>
+    <!-- rqt用プラグインの設定 -->
     <qtgui>
       <group>
+        <!-- プラグインのグループを設定 -->
+	    <!-- 例）グラフ等の図を描画をするのでVisualizationグループに分類 -->
         <label>Visualization</label>
         <icon type="theme">folder</icon>
         <statustip>Plugins related to logging.</statustip>
       </group>
-      <label>SamplePlugin</label>
+      <!-- プラグインのラベル -->
+      <label>Sample</label>
+      <!-- プラグインのアイコンの指定 -->
       <icon type="theme">mail-message-new</icon>
       <statustip>A Python GUI plugin for displaying and filtering ROS log messages.</statustip>
     </qtgui>

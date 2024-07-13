@@ -25,14 +25,14 @@ class SampleWidget(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
-        self.setWindowTitle("Sample")
+        #self.setWindowTitle("Sample")
 
         self.main_widget = QtWidgets.QWidget(self)
         self.slider_group = QtWidgets.QGroupBox('Desired values:')
         self.slider_form = QtWidgets.QFormLayout()
         self.labellist = []
         self.combolist = []
-        self.N_ch = 10
+        self.N_ch = 20
         self.send_value = np.zeros(len(self.combolist))
 
         # flags
